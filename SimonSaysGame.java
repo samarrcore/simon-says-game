@@ -56,17 +56,27 @@ public class SimonSaysGame extends JFrame implements ActionListener{
 
         flashSequence();
     }
-    private void flashSequence(){
-        timer = new Timer(500, new ActionListener(){
-            int index =0;
-            public void actionPerformed(ActionEvent e){
-                if(index >= sequence.size()){
+
+    //updated this part on 31-11-2024
+   private void flashSequence() {
+        timer = new Timer(500, new ActionListener() {
+            int index = 0;
+
+            public void actionPerformed(ActionEvent e) {
+                if (index >= sequence.size()) {
                     timer.stop();
                     return;
                 }
                 JButton button = sequence.get(index);
-                button.setBackground(Color.WHITE); //flashing color
-                new Timer(250,ae -> button.setBackground(getOriginalColor(button))).setRepeats(false);
+
+                // Set to white for flashing
+                button.setBackground(Color.WHITE);
+
+                // Reset to original color after 250 ms
+                Timer resetColorTimer = new Timer(250, ae -> button.setBackground(getOriginalColor(button)));
+                resetColorTimer.setRepeats(false);
+                resetColorTimer.start();
+
                 index++;
             }
         });
