@@ -65,13 +65,13 @@ private void createModePage(){
     modeLabel.setFont(new Font("Arial",Font.BOLD,24) );
 
     JButton easyButton = new JButton("Easy");
-    easyButton.addActionListener(e -> startGame(1000));
+    easyButton.addActionListener(e -> startGame(800));
 
     JButton medButton = new JButton("Medium");
-    medButton.addActionListener( e -> startGame(700));
+    medButton.addActionListener( e -> startGame(400));
 
     JButton hardButton = new JButton("Hard");
-    hardButton.addActionListener(e -> startGame(400));
+    hardButton.addActionListener(e -> startGame(250));
 
     modePage.add(modeLabel);
     modePage.add(easyButton);
